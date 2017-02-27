@@ -1,0 +1,7 @@
+### Post-installation
+
+After Gluster is installed on all its nodes, it's important to remove any cron jobs that may hinder performance in the future. Default Linux cron jobs like the "mlocate" updatedb command can bring a busy Gluster server to a severe resource starvation state like 100% disk utilisation, especially if this also happens during a lengthy self-heal operation. Mlocate is mostly a convenience measure that isn't very useful for backend Gluster servers anyway, so it isn't going to be missed if its cron job is removed.
+
+In Ubuntu and Debian, the process for removing this cron job is:
+
+  sudo rm /etc/cron.daily/mlocate
